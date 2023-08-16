@@ -12,10 +12,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 
+
+## TODO 
+## set the static to a debug false part, the page is correctly created
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -59,6 +62,9 @@ TEMPLATES = [
         },
     },
 ]
+
+handler404 = 'oc_lettings_site.views.custom_404'
+handler500 = 'oc_lettings_site.views.custom_500'
 
 WSGI_APPLICATION = 'oc_lettings_site.wsgi.application'
 
