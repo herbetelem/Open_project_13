@@ -25,7 +25,29 @@ jobs:
     needs: build  # Attend que le job de build soit terminé
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Deploy if tests passed
         if: ${{ needs.build.result == 'success' }}
         run: |
-          echo "Coucou"
+          env:
+            DOCKERHUB_USERNAME: hlouppe
+            DOCKER_PAT: dckr_pat_GG6IICC8cVesd7kKQtt1kB8pw34
+          build:
+            runs-on: ubuntu-latest
+            steps:
+              - name: Checkout
+                uses: actions/checkout@v3
+              - name: Login to Docker Hub
+                run: echo $DOCKER_PAT | docker login docker.io -u hlouppe --password-stdin
+              - name: Set up Docker Buildx
+                uses: docker/setup-buildx-action@v2
+              - name: Build and push
+                uses: docker/build-push-action@v4
+                with:
+                  context: .
+                  file: ./Dockerfile
+                  push: true
+                  tags: hlouppe/clockbox:latest
+
