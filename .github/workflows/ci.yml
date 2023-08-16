@@ -1,16 +1,16 @@
-name: CI
+name: CI/CD
 
 on: [push]  # Déclenche le pipeline à chaque push
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Utilise l'image d'Ubuntu
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Récupère le code depuis le dépôt
+        uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v2  # Configure Python
+        uses: actions/setup-python@v2
 
       - name: Install dependencies
         run: |
@@ -20,3 +20,27 @@ jobs:
       - name: Run tests
         run: |
           python manage.py test
+
+  deploy:
+    needs: build  # Attend que le job de build soit terminé
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          python manage.py test
+
+      - name: Deploy if tests passed
+        if: ${{ needs.build.result == 'success' }}
+        run: |
+          echo "Coucou"
