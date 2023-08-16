@@ -50,4 +50,3 @@ jobs:
                   file: ./Dockerfile
                   push: true
                   tags: hlouppe/clockbox:latest
-                  dckr_pat_GG6IICC8cVesd7kKQtt1kB8pw34
