@@ -31,7 +31,6 @@ jobs:
       - name: Deploy if tests passed
         if: ${{ needs.build.result == 'success' }}
         run: |
-          echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
           docker/setup-buildx-action@v2
           docker/build-push-action@v4
           with:
