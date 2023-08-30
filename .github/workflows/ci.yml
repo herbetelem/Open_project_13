@@ -21,18 +21,11 @@ jobs:
         run: |
           python manage.py test
 
-  deploy:
-    needs: build  # Attend que le job de build soit terminé
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Deploy if tests passed
-        if: ${{ needs.build.result == 'success' }}
+        if: ${{ success() }}
         run: |
-          git config --local user.email "herbet.hadrien@gmail.com"
-          git config --local user.name "herbetelem"
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --local user.name "${{ github.actor }}"
           git add .
           git commit -m "Auto-deploy after successful tests"
           git push
