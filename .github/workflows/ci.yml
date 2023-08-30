@@ -31,13 +31,8 @@ jobs:
       - name: Deploy if tests passed
         if: ${{ needs.build.result == 'success' }}
         run: |
-          docker/setup-buildx-action@v2
-          docker/build-push-action@v4
-          with:
-            context: .
-            file: ./Dockerfile
-            push: true
-            tags: hlouppe/clockbox:latest
-        env:
-          DOCKERHUB_USERNAME: hlouppe
-          DOCKERHUB_PASSWORD: dckr_pat_GG6IICC8cVesd7kKQtt1kB8pw34
+          git config --local user.email "herbet.hadrien@gmail.com"
+          git config --local user.name "herbetelem"
+          git add .
+          git commit -m "Auto-deploy after successful tests"
+          git push
