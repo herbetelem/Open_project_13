@@ -5,6 +5,7 @@ on: [push]  # Déclenche le pipeline à chaque push
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -21,8 +22,16 @@ jobs:
         run: |
           python manage.py test
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Deploy if tests passed
-        if: ${{ success() }}
+        if: ${{ needs.build.result == 'success' }}
         run: |
           git config --local user.email "${{ github.actor }}@users.noreply.github.com"
           git config --local user.name "${{ github.actor }}"
