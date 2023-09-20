@@ -1,0 +1,86 @@
+version: 2.1
+
+jobs:
+  build-lint-and-test:
+    docker:
+      - image: cimg/python:3.9.6
+    steps:
+      - checkout
+      - run:
+          command: |
+            python3 -m venv venv
+            . venv_13/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+      - run:
+            name: run linter and save it in XML
+            command: |
+              . venv_13/bin/activate
+              flake8
+              mkdir -p test-results/flake8
+              flake8 . --output-file=test-results/flake8/flake8.txt
+              flake8_junit test-results/flake8/flake8.txt test-results/flake8/flake8_junit.xml
+            when: always
+      - run:
+          name: run tests and save it in XML
+          command: |
+            . venv/bin/activate
+            mkdir -p test-results/pytest
+            pytest --junitxml=test-results/junit.xml
+
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+          destination: artifact-file
+
+  build-and-push-to-dockerhub:
+    docker:
+      - image: cimg/python:3.9.6
+    
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: build and push docker image
+          command: |
+            TAG=0.1.$CIRCLE_BUILD_NUM
+            docker build -t $DOCKER_USER/oc-lettings:$TAG .
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
+            docker push $DOCKER_USER/oc-lettings:$TAG
+
+  deploy-to-heroku:
+    docker:
+      - image: cimg/python:3.9.6
+    
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          command: |
+            sudo curl https://cli-assets.heroku.com/install.sh | sh
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku config:set SECRET_KEY=$SECRET_KEY -a $HEROKU_APP_NAME
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku config:set SENTRY_DSN=$SENTRY_DSN -a $HEROKU_APP_NAME
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:login
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a $HEROKU_APP_NAME web
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a $HEROKU_APP_NAME web
+
+
+workflows:
+  main-workflow:
+    jobs:
+      - build-lint-and-test
+      - build-and-push-to-dockerhub:
+          requires:
+            - build-lint-and-test
+          filters:
+            branches:
+              only: master
+      - deploy-to-heroku:
+          requires:
+            - build-and-push-to-dockerhub
+          filters:
+            branches:
+              only: master
