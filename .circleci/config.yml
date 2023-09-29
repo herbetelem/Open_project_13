@@ -16,7 +16,7 @@ jobs:
             name: run linter and save it in XML
             command: |
               . venv/bin/activate
-              flake8 --exclude=venv_p13,oc_lettings_site/migrations,lettings/migrations,profils/migrations
+              flake8 --exclude=venv,venv_13,oc_lettings_site/migrations,lettings/migrations,profils/migrations
               mkdir -p test-results/flake8
               flake8 . --output-file=test-results/flake8/flake8.txt
               flake8_junit test-results/flake8/flake8.txt test-results/flake8/flake8_junit.xml
