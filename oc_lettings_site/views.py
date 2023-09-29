@@ -11,8 +11,8 @@ def index(request):
     Returns:
         HttpResponse: A rendered HTML response for the index page.
     """
-
     return render(request, 'index.html')
+
 
 def custom_404(request, exception):
     """
@@ -40,5 +40,4 @@ def custom_500(request, exception):
     Returns:
         HttpResponse: A rendered HTML response for the custom 500 error page.
     """
-    
     return render(request, '500.html', status=500)

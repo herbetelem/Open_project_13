@@ -3,6 +3,7 @@ from django.urls import reverse
 from .models import Profile, User
 from .views import profiles_index, profile
 
+
 class ProfileViewTests(TestCase):
 
     def setUp(self):
@@ -13,12 +14,14 @@ class ProfileViewTests(TestCase):
     def test_profiles_index_view(self):
         request = self.factory.get(reverse('profiles_index'))
         response = profiles_index(request)
+        print(response)
         # self.assertEqual(response.status_code, 200)
         # self.assertTemplateUsed(response, 'profiles_index.html')
 
     def test_profile_view(self):
         request = self.factory.get(reverse('profile', args=('testuser',)))
         response = profile(request, username='testuser')
+        print(response)
         # self.assertEqual(response.status_code, 200)
         # self.assertTemplateUsed(response, 'profile.html')
         # self.assertContains(response, 'Test City')

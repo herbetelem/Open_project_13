@@ -9,7 +9,8 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 sentry_sdk.init(
-    dsn="https://5ca06dde7d171b69ca0760073daafa8c@o4505796506222592.ingest.sentry.io/4505796508975104",
+    dsn="https://5ca06dde7d171b69ca0760073daafa8c@o4505796506222592" +
+    ".ingest.sentry.io/4505796508975104",
     integrations=[DjangoIntegration()],
     # If you wish to associate users to errors (assuming you are using
     # django.contrib.auth) you may enable sending PII data.
@@ -24,10 +25,6 @@ sentry_sdk.init(
     profiles_sample_rate=1.0,
 )
 
-
-
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,8 +36,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 
 
-## TODO 
-## set the static to a debug false part, the page is correctly created
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -145,4 +140,4 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static",]
+STATICFILES_DIRS = [BASE_DIR / "static", ]

@@ -5,7 +5,7 @@ from django.core.validators import MaxValueValidator, MinLengthValidator
 class Address(models.Model):
     """
     A model to represent an address.
-    
+
     Attributes:
         number (PositiveIntegerField): The street number.
         street (CharField): The name of the street.
@@ -14,7 +14,7 @@ class Address(models.Model):
         zip_code (PositiveIntegerField): The ZIP code.
         country_iso_code (CharField): The ISO country code (3 characters).
     """
-    
+
     number = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
     street = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
@@ -26,14 +26,14 @@ class Address(models.Model):
         return f'{self.number} {self.street}'
 
     class Meta:
-            verbose_name = "Address"
-            verbose_name_plural = "Address"
+        verbose_name = "Address"
+        verbose_name_plural = "Address"
 
 
 class Letting(models.Model):
     """
     A model to represent a letting property.
-    
+
     Attributes:
         title (CharField): The title of the letting.
         address (OneToOneField): A reference to the associated address.

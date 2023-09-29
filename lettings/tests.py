@@ -2,10 +2,11 @@ from django.test import TestCase
 from django.urls import reverse
 from .models import Letting, Address
 
+
 class LettingViewTests(TestCase):
 
     def setUp(self):
-        
+
         self.test_address = Address.objects.create(
             number=123,
             street='Test Street',
@@ -14,7 +15,6 @@ class LettingViewTests(TestCase):
             zip_code=12345,
             country_iso_code='TC'
         )
-
 
     def test_lettings_index_view(self):
         response = self.client.get(reverse('lettings_index'))
