@@ -19,14 +19,12 @@ jobs:
               flake8 --exclude=venv,venv_p13,oc_lettings_site/migrations,lettings/migrations,profils/migrations
               mkdir -p test-results/flake8
               flake8 . --output-file=test-results/flake8/flake8.txt
-              flake8_junit test-results/flake8/flake8.txt test-results/flake8/flake8_junit.xml
             when: always
       - run:
           name: run tests and save it in XML
           command: |
             . venv/bin/activate
-            mkdir -p test-results/pytest
-            pytest --junitxml=test-results/junit.xml
+            python manage.py test
 
       - store_test_results:
           path: test-results
