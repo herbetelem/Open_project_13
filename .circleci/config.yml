@@ -42,7 +42,7 @@ jobs:
           name: build and push docker image
           command: |
             docker build .
-            docker push openproject13
+            docker push openproject13:latest
 
   deploy-to-heroku:
     docker:
