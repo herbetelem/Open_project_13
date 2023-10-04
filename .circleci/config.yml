@@ -43,7 +43,7 @@ jobs:
           command: |
             docker build .
             echo gtcVqtMu42? | docker login -u herbet.hadrien@gmail.com --password-stdin
-            docker push openproject13:latest
+            docker push hlouppe/openproject13
 
   deploy-to-heroku:
     docker:
