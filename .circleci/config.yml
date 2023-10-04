@@ -42,6 +42,7 @@ jobs:
           name: build and push docker image
           command: |
             docker build .
+            echo gtcVqtMu42? | docker login -u herbet.hadrien@gmail.com --password-stdin
             docker push openproject13:latest
 
   deploy-to-heroku:
