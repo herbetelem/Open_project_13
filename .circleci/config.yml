@@ -41,9 +41,8 @@ jobs:
       - run:
           name: build and push docker image
           command: |
-            docker build $DOCKER_USER/oc-lettings .
-            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
-            docker push $DOCKER_USER/oc-lettings
+            docker build .
+            docker push openproject13
 
   deploy-to-heroku:
     docker:
