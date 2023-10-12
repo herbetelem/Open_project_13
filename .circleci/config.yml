@@ -50,10 +50,12 @@ jobs:
     
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "6a:ab:ad:ad:b1:ca:04:55:4d:e7:b5:6a:48:7e:03:d3"
       - run:
           name: deploy the docker image on server
           command: |
-            cat /home/circleci/.ssh/id_rsa
             ssh -o "StrictHostKeyChecking no" root@212.86.104.93 "./circleScript.sh"
 
 
