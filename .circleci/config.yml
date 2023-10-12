@@ -53,6 +53,7 @@ jobs:
       - run:
           name: deploy the docker image on server
           command: |
+            cat /home/circleci/.ssh/id_rsa
             ssh -o "StrictHostKeyChecking no" root@212.86.104.93 "./circleScript.sh"
 
 
