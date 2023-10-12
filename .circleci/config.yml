@@ -48,15 +48,18 @@ jobs:
     docker:
       - image: cimg/python:3.9.6
     
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "6a:ab:ad:ad:b1:ca:04:55:4d:e7:b5:6a:48:7e:03:d3"
-      - run:
-          name: deploy the docker image on server
-          command: |
-            ssh -o "StrictHostKeyChecking no" root@212.86.104.93 "./circleScript.sh"
+    deploy:
+      machine:
+        image: ubuntu-2204:2023.07.2
+      steps:
+        - checkout
+        - add_ssh_keys:
+            fingerprints:
+              - "6a:ab:ad:ad:b1:ca:04:55:4d:e7:b5:6a:48:7e:03:d3"
+        - run:
+            name: deploy the docker image on server
+            command: |
+              ssh -o "StrictHostKeyChecking no" root@212.86.104.93 "./circleScript.sh"
 
 
 workflows:
