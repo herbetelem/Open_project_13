@@ -44,6 +44,16 @@ jobs:
             docker build -t hlouppe/openproject13 .
             echo 'gtcVqtMu42?' | docker login -u herbet.hadrien@gmail.com --password-stdin docker.io
             docker push hlouppe/openproject13:latest
+  deploy-docker-on-server:
+    docker:
+      - image: cimg/python:3.9.6
+    
+    steps:
+      - checkout
+      - run:
+          name: deploy the docker image on server
+          command: |
+            ssh root@212.86.104.93 "./circleScript.sh"
 
 
 workflows:
@@ -53,6 +63,12 @@ workflows:
       - build-and-push-to-dockerhub:
           requires:
             - build-lint-and-test
+          filters:
+            branches:
+              only: master
+      - deploy-docker-on-server:
+          requires:
+            - build-and-push-to-dockerhub
           filters:
             branches:
               only: master
