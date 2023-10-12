@@ -45,12 +45,10 @@ jobs:
             echo 'gtcVqtMu42?' | docker login -u herbet.hadrien@gmail.com --password-stdin docker.io
             docker push hlouppe/openproject13:latest
   deploy-docker-on-server:
-    docker:
-      - image: cimg/python:3.9.6
-    
     deploy:
       machine:
         image: ubuntu-2204:2023.07.2
+      
       steps:
         - checkout
         - add_ssh_keys:
