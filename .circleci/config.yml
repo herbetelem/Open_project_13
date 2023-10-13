@@ -16,8 +16,7 @@ jobs:
             name: run linter and save it in XML
             command: |
               . venv/bin/activate
-              # flake8: noqa
-              flake8 --exclude=venv,venv_p13,oc_lettings_site/migrations,lettings/migrations,profils/migrations,docs
+              flake8 --exclude=venv,venv_p13,oc_lettings_site/migrations,lettings/migrations,profils/migrations,docs,.circleci
             when: always
       - run:
           name: run tests and save it in XML
