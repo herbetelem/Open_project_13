@@ -12,11 +12,3 @@ lettings.views module
    :members:
    :undoc-members:
    :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: lettings
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -12,11 +12,3 @@ oc\_lettings\_site.views module
    :members:
    :undoc-members:
    :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: oc_lettings_site
-   :members:
-   :undoc-members:
-   :show-inheritance:
