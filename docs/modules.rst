@@ -5,3 +5,5 @@ oc_lettings_site
    :maxdepth: 4
 
    oc_lettings_site
+   profils
+   lettings
