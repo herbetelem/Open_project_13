@@ -3,6 +3,13 @@ import sys
 
 
 def main():
+    """_main function_
+
+    function to run the serveur
+    
+    Raises:
+        ImportError: _description_
+    """
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oc_lettings_site.settings')
     try:
         from django.core.management import execute_from_command_line
