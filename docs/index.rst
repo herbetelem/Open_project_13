@@ -10,6 +10,8 @@ Welcome to Open project 13's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   modules
+
 
 
 Indices and tables
