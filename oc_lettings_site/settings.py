@@ -2,22 +2,13 @@ import os
 
 from pathlib import Path
 
-
-# Sentry Param
+# settings.py
 import sentry_sdk
 
-from sentry_sdk.integrations.django import DjangoIntegration
-
 sentry_sdk.init(
-    dsn="https://5ca06dde7d171b69ca0760073daafa8c@o4505796506222592" +
-    ".ingest.sentry.io/4505796508975104",
-    integrations=[DjangoIntegration()],
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True,
+    dsn="https://1c97691b1edeb6e6e751445befff6829@o4505796506222592.ingest.sentry.io/4506041244581888",
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
     traces_sample_rate=1.0,
     # Set profiles_sample_rate to 1.0 to profile 100%
     # of sampled transactions.
