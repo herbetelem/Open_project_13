@@ -9,9 +9,8 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath("../oc_lettings_site"))
-sys.path.insert(0, os.path.abspath("../lettings"))
-sys.path.insert(0, os.path.abspath("../profils"))
+sys.path.insert(0, os.path.abspath(".."))
+
 
 
 project = 'Open project 13'
