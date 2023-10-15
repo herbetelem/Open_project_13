@@ -7,4 +7,3 @@ oc_lettings_site
    oc_lettings_site
    profils
    lettings
-   pikachu
