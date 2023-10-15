@@ -29,7 +29,6 @@ def letting(request, letting_id):
     Returns:
         HttpResponse: A rendered HTML response with the letting details.
     """
-
     letting = Letting.objects.get(id=letting_id)
     context = {
         'title': letting.title,
