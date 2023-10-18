@@ -1,7 +1,6 @@
 FROM python
 WORKDIR /Open_Project_13
 COPY . .
-COPY .env .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 EXPOSE 8000
