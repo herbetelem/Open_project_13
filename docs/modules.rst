@@ -24,6 +24,11 @@ Et la liste des languages utiliser dans le projet:
 - HTML
 - JS
 
+**Exemple d'utilisation**
+
+Vous pouvez acceder au panel administration depuis l'url /admin/ avec les identifiant adapté.
+Sur le panel vous pouvez accedez au model et ajouter ou mettre a jour les informations dessus afin de pouvoir les rendre correct ou les rendre visible sur le site pour tous les users
+
 
 Documentation technique
 ===============
