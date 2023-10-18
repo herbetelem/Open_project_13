@@ -41,7 +41,7 @@ jobs:
           name: build and push docker image
           command: |
             docker build -t hlouppe/openproject13 .
-            echo 'gtcVqtMu42?' | docker login -u herbet.hadrien@gmail.com --password-stdin docker.io
+            docker login -u herbet.hadrien@gmail.com $PASSWORDDOCKER docker.io
             docker push hlouppe/openproject13:latest
           when: always
   deploy-docker-on-server:
