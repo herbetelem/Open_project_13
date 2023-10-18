@@ -1,6 +1,12 @@
 Open_project_13
 ===============
 
+
+
+
+Documentation technique
+===============
+
 .. toctree::
    :maxdepth: 4
 
@@ -10,16 +16,12 @@ Open_project_13
    profils
 
 
-Documentation technique
+Documentation installation
 ===========
 
-**Résumé **
+**Développement local**
 
-Site web d'Holiday Homes
-
-**Développement local **
-
-**Prérequis **
+**Prérequis**
 
 - Compte GitHub avec accès en lecture à ce repository
 - Git CLI
