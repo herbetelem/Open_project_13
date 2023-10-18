@@ -13,13 +13,13 @@ Open_project_13
 Documentation technique
 ===========
 
-## Résumé
+**Résumé **
 
 Site web d'Holiday Homes
 
-## Développement local
+**Développement local **
 
-### Prérequis
+**Prérequis **
 
 - Compte GitHub avec accès en lecture à ce repository
 - Git CLI
@@ -28,14 +28,14 @@ Site web d'Holiday Homes
 
 Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
 
-### macOS / Linux
+**macOS / Linux**
 
-#### Cloner le repository
+**Cloner le repository**
 
 - `cd /path/to/put/project/in`
 - `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git`
 
-#### Créer l'environnement virtuel
+**Créer l'environnement virtuel**
 
 - `cd /path/to/Python-OC-Lettings-FR`
 - `python -m venv venv`
@@ -47,7 +47,7 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
 - Pour désactiver l'environnement, `deactivate`
 
-#### Exécuter le site
+**Exécuter le site**
 
 - `cd /path/to/Python-OC-Lettings-FR`
 - `source venv/bin/activate`
@@ -56,19 +56,19 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - Aller sur `http://localhost:8000` dans un navigateur.
 - Confirmer que le site fonctionne et qu'il est possible de naviguer (vous devriez voir plusieurs profils et locations).
 
-#### Linting
+**Linting**
 
 - `cd /path/to/Python-OC-Lettings-FR`
 - `source venv/bin/activate`
 - `flake8`
 
-#### Tests unitaires
+**Tests unitaires**
 
 - `cd /path/to/Python-OC-Lettings-FR`
 - `source venv/bin/activate`
 - `pytest`
 
-#### Base de données
+**Base de données**
 
 - `cd /path/to/Python-OC-Lettings-FR`
 - Ouvrir une session shell `sqlite3`
@@ -79,12 +79,12 @@ Dans le reste de la documentation sur le développement local, il est supposé q
   Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
 - `.quit` pour quitter
 
-#### Panel d'administration
+**Panel d'administration**
 
 - Aller sur `http://localhost:8000/admin`
 - Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
 
-### Windows
+**Windows**
 
 Utilisation de PowerShell, comme ci-dessus sauf :
 

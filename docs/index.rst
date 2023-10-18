@@ -13,11 +13,6 @@ Welcome to openProject13's documentation!
    modules
 
 
-Documentation technique
-===========
-
-.. mdinclude:: personal_page.md
-
 Indices and tables
 ==================
 
