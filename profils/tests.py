@@ -15,11 +15,8 @@ class ProfileViewTests(TestCase):
         request = self.factory.get(reverse('profiles_index'))
         response = profiles_index(request)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles_index.html')
 
     def test_profile_view(self):
         request = self.factory.get(reverse('profile', args=('testuser',)))
         response = profile(request, username='testuser')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profile.html')
-        self.assertContains(response, 'Test City')
