@@ -43,6 +43,9 @@ jobs:
             docker build -t hlouppe/openproject13 .
             docker login -u herbet.hadrien@gmail.com -p $PASSWORDDOCKER docker.io
             docker push hlouppe/openproject13:latest
+          environment:
+            SECRET_LINK: $SECRET_LINK
+            SECRET_KEY: $SECRET_KEY
           when: always
   deploy-docker-on-server:
       machine:
