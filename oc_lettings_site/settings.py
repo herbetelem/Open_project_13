@@ -7,7 +7,7 @@ from decouple import config
 import sentry_sdk
 
 sentry_sdk.init(
-    dsn="https://1c97691b1edeb6e6e751445befff6829@o4505796506222592.ingest.sentry.io/4506041244581888",
+    dsn=config('SECRET_LINK'),
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     traces_sample_rate=1.0,
