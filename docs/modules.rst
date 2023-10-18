@@ -8,3 +8,9 @@ Open_project_13
    manage
    oc_lettings_site
    profils
+
+
+Readme File
+===========
+
+.. mdinclude:: personal_page.md
