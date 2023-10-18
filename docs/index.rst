@@ -11,7 +11,9 @@ Welcome to openProject13's documentation!
    :caption: Contents:
 
    modules
-   personal_page.md
+
+.. include:: personal_page.md
+
 
 Indices and tables
 ==================
