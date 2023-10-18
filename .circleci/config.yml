@@ -20,7 +20,7 @@ jobs:
       - run:
           name: run tests and save it in XML
           command: |
-            . venv/bin/activate
+            . venv_P13/bin/activate
             python manage.py test
 
       - store_test_results:
