@@ -13,6 +13,11 @@ Welcome to openProject13's documentation!
    modules
 
 
+Doc General
+===========
+
+.. mdinclude:: personal_page.md
+
 Indices and tables
 ==================
 
@@ -20,7 +25,3 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-Readme File
-===========
-
-.. mdinclude:: personal_page.md
