@@ -13,7 +13,7 @@ Welcome to openProject13's documentation!
    modules
 
 
-Doc General
+Documentation technique
 ===========
 
 .. mdinclude:: personal_page.md
