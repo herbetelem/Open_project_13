@@ -7,7 +7,7 @@ from decouple import config
 import sentry_sdk
 
 sentry_sdk.init(
-    dsn=config('SECRET_LINK'),
+    dsn=config('$SECRETLINK'),
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     traces_sample_rate=1.0,
@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('$SECRETKEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
