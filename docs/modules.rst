@@ -1,7 +1,28 @@
 Open_project_13
 ===============
 
+**Sujet**
 
+Le projet Openclassroom 13 a pour but de développer les compétence de l'étudiant en architecture modulaires, et de lui donner l'opportunité de développer quelque skill de dev ops
+
+Voici la liste des outils utiliser dans ce projet:
+
+- Github
+- Sentry
+- Docker
+- Kamatera
+- Circleci
+- Readthedocs
+- sphinx
+- Django
+- sqlite3
+
+Et la liste des languages utiliser dans le projet:
+
+- Python
+- CSS
+- HTML
+- JS
 
 
 Documentation technique
