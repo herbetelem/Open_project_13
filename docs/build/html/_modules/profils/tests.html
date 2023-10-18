@@ -92,22 +92,17 @@
     <span class="k">def</span> <span class="nf">test_profiles_index_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;profiles_index&#39;</span><span class="p">))</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">profiles_index</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span></div>
 
-        <span class="c1"># self.assertEqual(response.status_code, 200)</span>
-        <span class="c1"># self.assertTemplateUsed(response, &#39;profiles_index.html&#39;)</span>
 
 <div class="viewcode-block" id="ProfileViewTests.test_profile_view">
 <a class="viewcode-back" href="../../profils.html#profils.tests.ProfileViewTests.test_profile_view">[docs]</a>
     <span class="k">def</span> <span class="nf">test_profile_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;testuser&#39;</span><span class="p">,)))</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">profile</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span></div>
 </div>
 
-        <span class="c1"># self.assertEqual(response.status_code, 200)</span>
-        <span class="c1"># self.assertTemplateUsed(response, &#39;profile.html&#39;)</span>
-        <span class="c1"># self.assertContains(response, &#39;Test City&#39;)</span>
 </pre></div>
 
            </div>
