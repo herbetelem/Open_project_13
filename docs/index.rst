@@ -12,8 +12,6 @@ Welcome to openProject13's documentation!
 
    modules
 
-.. include:: personal_page.md
-
 
 Indices and tables
 ==================
@@ -21,3 +19,10 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+-----------
+Readme File
+-----------
+
+.. mdinclude:: ../README.md
